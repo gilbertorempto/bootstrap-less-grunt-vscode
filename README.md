@@ -4,7 +4,7 @@ Customize and extend [Bootstrap](http://getbootstrap.com/) using [Less](http://l
 ## Requirements
 
 - Download an install [Node.js](https://nodejs.org).
-- [grunt-cli](https://www.npmjs.com/package/grunt-cli)
+- Run ```npm install - g grunt-cli``` to install [grunt-cli](https://www.npmjs.com/package/grunt-cli).
 
 ## Compile CSS
 
