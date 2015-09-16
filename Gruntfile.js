@@ -45,6 +45,18 @@ module.exports = function (grunt) {
       }
     },
 
+    csscomb: {
+      options: {
+        config: 'less/.csscomb.json'
+      },
+      compile: {
+        expand: true,
+        cwd: 'css/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'css/'
+      },
+    },
+
     cssmin: {
       options: {
         compatibility: 'ie8',
@@ -65,7 +77,7 @@ module.exports = function (grunt) {
     watch: {
       less: {
         files: ['less/*.less'],
-        tasks: ['less', 'autoprefixer', 'cssmin'],
+        tasks: ['less', 'autoprefixer', 'csscomb', 'cssmin'],
       }
     }
 
@@ -73,8 +85,9 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-csscomb');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['less', 'autoprefixer', 'cssmin', 'watch']);
+  grunt.registerTask('default', ['less', 'autoprefixer', 'csscomb', 'cssmin', 'watch']);
 }
